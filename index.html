@@ -11,14 +11,6 @@
       gtag('config', 'AW-18025206536');
     </script>
     
-    <!-- Event snippet for Solicitar cotação conversion page -->
-    <script>
-      gtag('event', 'conversion', {
-          'send_to': 'AW-18025206536/YbSgCL7gsI4cEIimi5ND',
-          'value': 1.0,
-          'currency': 'BRL'
-      });
-    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1596,5 +1588,22 @@
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 
+    <!-- Disparo da tag de conversão do Google Ads aos cliques no botão do WhatsApp -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var wpLinks = document.querySelectorAll('a[href*="wa.me"]');
+            wpLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (typeof window.gtag === 'function') {
+                        window.gtag('event', 'conversion', {
+                            'send_to': 'AW-18025206536/YbSgCL7gsI4cEIimi5ND',
+                            'value': 1.0,
+                            'currency': 'BRL'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
